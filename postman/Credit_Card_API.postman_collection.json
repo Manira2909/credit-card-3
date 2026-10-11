@@ -1,0 +1,9 @@
+{
+  "info": {"name": "Credit Card API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/"},
+  "item": [
+    {"name": "Register", "request": {"method": "POST", "url": "http://127.0.0.1:8000/api/auth/register", "body": {"mode": "raw", "raw": "{\"email\":\"test@test.com\",\"password\":\"123456\"}"}}},
+    {"name": "Login", "request": {"method": "POST", "url": "http://127.0.0.1:8000/api/auth/login", "body": {"mode": "urlencoded", "urlencoded": [{"key":"username","value":"test@test.com"},{"key":"password","value":"123456"}]}}},
+    {"name": "Add Card", "request": {"method": "POST", "header": [{"key":"Authorization","value":"Bearer {{token}}"}], "url": "http://127.0.0.1:8000/api/cards/", "body": {"mode":"raw","raw":"{\"card_number\":\"4242424242424242\",\"holder_name\":\"Test User\",\"expiry_month\":12,\"expiry_year\":2028,\"cvv\":\"123\"}"}}},
+    {"name": "Pay", "request": {"method": "POST", "header": [{"key":"Authorization","value":"Bearer {{token}}"}], "url": "http://127.0.0.1:8000/api/payments/pay", "body": {"mode":"raw","raw":"{\"card_id\":1,\"amount\":500,\"merchant\":\"Amazon\"}"}}}
+  ]
+}
